@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">brand_edit_form.brand_edit_form_data_source</item>
+            <item name="deps" xsi:type="string">brand_edit_form.brand_edit_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Brand Information</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">brand_edit_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array"> 
+                <item name="back" xsi:type="string">Yupple\Brand\Block\Adminhtml\Brand\Edit\Form\BackButton</item> 
+                <!--item name="delete" xsi:type="string">Yupple\Brand\Block\Adminhtml\Brand\Edit\Form\DeleteButton</item--> 
+                <item name="reset" xsi:type="string">Yupple\Brand\Block\Adminhtml\Brand\Edit\Form\ResetButton</item> 
+                <item name="save" xsi:type="string">Yupple\Brand\Block\Adminhtml\Brand\Edit\Form\SaveButton</item> 
+        </item>
+    </argument>
+    <dataSource name="brand_edit_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Yupple\Brand\Model\DataProvider</argument>
+            <argument name="name" xsi:type="string">brand_edit_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">brand_id</argument>
+            <argument name="requestFieldName" xsi:type="string">brand_id</argument>
+            <argument name="data" xsi:type="array"> 
+                <item name="config" xsi:type="array"> 
+                  <item name="submit_url" xsi:type="url" path="yupple_brand/brandlist/save" /> 
+                </item> 
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="brand_details">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="label" xsi:type="string" translate="true">Brand Details</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+        <field name="brand_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Brand Id</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">brand</item>
+                    <item name="dataScope" xsi:type="string">brand_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="bname">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Brand Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">brand</item>
+                    <item name="dataScope" xsi:type="string">bname</item>
+                </item>
+            </argument>
+        </field>
+         <field name="email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Brand Email</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">brand</item>
+                    <item name="dataScope" xsi:type="string">email</item>
+                </item>
+            </argument>
+        </field>
+        <field name="image">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="source" xsi:type="string">brand</item>
+                    <item name="label" xsi:type="string" translate="true">Brand Image</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>                                     
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="previewTmpl" xsi:type="string">Yupple_Brand/image-preview</item>
+                    <!--item name="previewTmpl" xsi:type="string">ui/form/element/uploader/preview</item-->
+                    <item name="allowedExtensions" xsi:type="string">jpg jpeg gif png</item>
+                    <item name="notice" xsi:type="string" translate="true">Allow only: png, gif, jpg, jpeg.</item>
+                    <item name="maxFileSize" xsi:type="number">2097152</item>                    
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <!--item name="dataScope" xsi:type="string">featured_images</item--> <!--this will effect in create method in image model-->
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="yupple_brand/brandlist/upload"/>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="bdesc">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Brand Description</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">brand</item>
+                    <item name="dataScope" xsi:type="string">bdesc</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

@@ -1,0 +1,26 @@
+<?php
+$brands = $this->getBrands();
+?>
+<div id="contactslist">
+    <h2>Brands</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Email</th>
+        </tr>
+        <?php foreach ($brands as $brand): ?>
+            <tr>
+                <td><?php echo $brand->getBname(); ?></td>
+                <td><?php echo $brand->getBdesc(); ?></td>
+                <td><?php echo $brand->getImage(); ?></td>
+                <td><?php echo $brand->getEmail(); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        <tr>
+            <td>there is no contact in this list</td>
+        </tr>
+    </table>
+</div>
+

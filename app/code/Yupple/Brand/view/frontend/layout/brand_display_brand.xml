@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <!-- for default without block block class="Magento\Framework\View\Element\Template" name="brandForm" template="Yupple_Brand::index.phtml" /-->
+            <block class="Yupple\Brand\Block\Brandslist" name="brandForm" template="Yupple_Brand::index.phtml" />
+        </referenceContainer>
+    </body>
+</page>

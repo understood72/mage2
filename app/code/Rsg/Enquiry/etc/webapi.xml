@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<!--route url="/V1/testapi/custom/me" method="GET">
+		<service class="Rsg\Enquiry\Api\TestApiManagementInterface" method="getApiData"/>
+		<resources>
+			<resource ref="self"/>
+		</resources>
+		<data>
+			<parameter name="customer.id" force="true">%customer_id%</parameter>
+		</data>
+	</route-->
+	<route url="/V1/products" method="GET">
+	    <service class="Magento\Catalog\Api\ProductRepositoryInterface" method="getList"/>
+	    <resources>
+	        <resource ref="Magento_Catalog::products" />
+	    </resources>
+	</route>
+	 <route url="/V1/enquiry/name/:name" method="GET">
+		<service class="Rsg\Enquiry\Api\CustomapiInterface" method="name"/>
+		<resources>
+		    <resource ref="anonymous"/>
+		</resources>
+	</route>
+</routes>

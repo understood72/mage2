@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    <add id="Yupple_Brand::main_menu" 
+            title="Simple Brand" 
+            module="Yupple_Brand" 
+            sortOrder="20" 
+            resource="Yupple_Brand::brand" />
+    <add id="Yupple_Brand::add_brand" 
+            title="Add Brand" 
+            module="Yupple_Brand" 
+            sortOrder="1" 
+            parent="Yupple_Brand::main_menu" 
+            action="brand/brand/new" 
+            resource="Yupple_Brand::add_brand" />
+      <add id="Yupple_Brand::manage_brand" 
+            title="Manage Brand" 
+            module="Yupple_Brand" 
+            sortOrder="2" 
+            parent="Yupple_Brand::main_menu" 
+            action="yupple_brand/brandlist/index" 
+            resource="Yupple_Brand::manage_brand" />
+
+        <add id="Yupple_Brand::configuration" 
+            title="Configuration" 
+            module="Yupple_Brand" 
+            sortOrder="3" 
+            parent="Yupple_Brand::main_menu" 
+            action="adminhtml/system_config/edit/section/brand" 
+            resource="Yupple_Brand::configuration" />   
+    </menu>
+</config>

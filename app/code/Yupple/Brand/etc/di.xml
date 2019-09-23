@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+  <!--only for grid list-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="brand_brandlist_listing_data_source" xsi:type="string">Yupple\Brand\Model\ResourceModel\Brand\Collection</item>
+            </argument>
+            <!-- Temporary file stored in pub/media/brand/tmp/icon -->
+            <argument name="baseTmpPath" xsi:type="string">brand/tmp/brand</argument>
+            <argument name="basePath" xsi:type="string">brand/brand</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Yupple\Brand\Model\ResourceModel\Brand\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">brand</argument>
+            <argument name="resourceModel" xsi:type="string">Yupple\Brand\Model\ResourceModel\Brand</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="BrandsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Yupple\Brand\Model\ResourceModel\Brand\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">BrandsGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="BrandsGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+
+    <!--only for grid list-->
+
+</config>
